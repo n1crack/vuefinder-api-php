@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VueFinderController;
 
 // VueFinder API Routes
-Route::prefix('/files')->group(function () {
+Route::prefix('/files')
+->middleware('throttle:100,1')
+->group(function () {
     // GET routes
     Route::get('/', [VueFinderController::class, 'index'])->name('vuefinder.index');
     Route::get('/search', [VueFinderController::class, 'search'])->name('vuefinder.search');
