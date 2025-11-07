@@ -1,1 +1,9 @@
+*
 !.gitignore
+!Code/
+!Documents/
+!Images/
+!Media/
+!Projects/
+!Samples/
+!welcome.txt
