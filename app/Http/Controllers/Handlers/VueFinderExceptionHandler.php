@@ -10,6 +10,7 @@ use League\Flysystem\UnableToDeleteDirectory;
 use League\Flysystem\UnableToCreateDirectory;
 use League\Flysystem\UnableToMoveFile;
 use League\Flysystem\UnableToCopyFile;
+use Ozdemir\VueFinder\Exceptions\PathNotFoundException;
 use Throwable;
 
 class VueFinderExceptionHandler
@@ -94,6 +95,15 @@ class VueFinderExceptionHandler
     public function handle(Throwable $exception): JsonResponse
     {
         $exceptionClass = get_class($exception);
+
+        // Handle PathNotFoundException
+        if ($exception instanceof PathNotFoundException) {
+            return $this->errorResponse(
+                $exception->getMessage() ?: 'The specified path does not exist.',
+                404,
+                'path_not_found'
+            );
+        }
 
         // Check if we have a specific handler for this exception
         if (isset(self::ERROR_MAP[$exceptionClass])) {
