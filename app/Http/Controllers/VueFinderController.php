@@ -3,16 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 use Ozdemir\VueFinder\Actions\VueFinderActionFactory;
+use App\Http\Controllers\Handlers\VueFinderExceptionHandler;
+use Throwable;
 
 class VueFinderController extends Controller
 {
-    /**
-     * Inject the action factory via constructor
-     */
     public function __construct(
-        private VueFinderActionFactory $actionFactory
+        private VueFinderActionFactory $actionFactory,
+        private VueFinderExceptionHandler $exceptionHandler
     ) {}
+
+    private function executeAction(Request $request, string $actionName): JsonResponse|Response|SymfonyResponse
+    {
+        try {
+            $action = $this->actionFactory
+                ->setRequest($request)
+                ->create($actionName);
+
+            return $action->execute();
+        } catch (Throwable $e) {
+            return $this->exceptionHandler->handle($e);
+        }
+    }
 
     /**
      * List files in a directory
@@ -21,11 +37,7 @@ class VueFinderController extends Controller
      */
     public function index(Request $request)
     {
-        $action = $this->actionFactory
-            ->setRequest($request)
-            ->create('index');
-
-        return $action->execute();
+        return $this->executeAction($request, 'index');
     }
 
     /**
@@ -35,11 +47,7 @@ class VueFinderController extends Controller
      */
     public function search(Request $request)
     {
-        $action = $this->actionFactory
-            ->setRequest($request)
-            ->create('search');
-
-        return $action->execute();
+        return $this->executeAction($request, 'search');
     }
 
     /**
@@ -50,11 +58,7 @@ class VueFinderController extends Controller
      */
     public function upload(Request $request)
     {
-        $action = $this->actionFactory
-            ->setRequest($request)
-            ->create('upload');
-
-        return $action->execute();
+        return $this->executeAction($request, 'upload');
     }
 
     /**
@@ -65,11 +69,7 @@ class VueFinderController extends Controller
      */
     public function delete(Request $request)
     {
-        $action = $this->actionFactory
-            ->setRequest($request)
-            ->create('delete');
-
-        return $action->execute();
+        return $this->executeAction($request, 'delete');
     }
 
     /**
@@ -80,20 +80,12 @@ class VueFinderController extends Controller
      */
     public function createFolder(Request $request)
     {
-        $action = $this->actionFactory
-            ->setRequest($request)
-            ->create('create-folder');
-
-        return $action->execute();
+        return $this->executeAction($request, 'create-folder');
     }
 
     public function createFile(Request $request)
     {
-        $action = $this->actionFactory
-            ->setRequest($request)
-            ->create('create-file');
-
-        return $action->execute();
+        return $this->executeAction($request, 'create-file');
     }
 
     /**
@@ -104,11 +96,7 @@ class VueFinderController extends Controller
      */
     public function rename(Request $request)
     {
-        $action = $this->actionFactory
-            ->setRequest($request)
-            ->create('rename');
-
-        return $action->execute();
+        return $this->executeAction($request, 'rename');
     }
 
     /**
@@ -119,11 +107,7 @@ class VueFinderController extends Controller
      */
     public function move(Request $request)
     {
-        $action = $this->actionFactory
-            ->setRequest($request)
-            ->create('move');
-
-        return $action->execute();
+        return $this->executeAction($request, 'move');
     }
 
     /**
@@ -134,11 +118,7 @@ class VueFinderController extends Controller
      */
     public function copy(Request $request)
     {
-        $action = $this->actionFactory
-            ->setRequest($request)
-            ->create('copy');
-
-        return $action->execute();
+        return $this->executeAction($request, 'copy');
     }
 
     /**
@@ -148,11 +128,7 @@ class VueFinderController extends Controller
      */
     public function download(Request $request)
     {
-        $action = $this->actionFactory
-            ->setRequest($request)
-            ->create('download');
-
-        return $action->execute();
+        return $this->executeAction($request, 'download');
     }
 
     /**
@@ -162,11 +138,7 @@ class VueFinderController extends Controller
      */
     public function preview(Request $request)
     {
-        $action = $this->actionFactory
-            ->setRequest($request)
-            ->create('preview');
-
-        return $action->execute();
+        return $this->executeAction($request, 'preview');
     }
 
     /**
@@ -177,11 +149,7 @@ class VueFinderController extends Controller
      */
     public function save(Request $request)
     {
-        $action = $this->actionFactory
-            ->setRequest($request)
-            ->create('save');
-
-        return $action->execute();
+        return $this->executeAction($request, 'save');
     }
 
     /**
@@ -192,11 +160,7 @@ class VueFinderController extends Controller
      */
     public function archive(Request $request)
     {
-        $action = $this->actionFactory
-            ->setRequest($request)
-            ->create('archive');
-
-        return $action->execute();
+        return $this->executeAction($request, 'archive');
     }
 
     /**
@@ -207,11 +171,7 @@ class VueFinderController extends Controller
      */
     public function unarchive(Request $request)
     {
-        $action = $this->actionFactory
-            ->setRequest($request)
-            ->create('unarchive');
-
-        return $action->execute();
+        return $this->executeAction($request, 'unarchive');
     }
 }
 
