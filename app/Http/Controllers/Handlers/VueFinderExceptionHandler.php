@@ -127,12 +127,9 @@ class VueFinderExceptionHandler
         return self::ERROR_MAP[$exceptionClass][$key];
     }
 
-    private function errorResponse(string $message, int $statusCode, string $errorCode): JsonResponse
+    private function errorResponse(string $message, int $statusCode, string $code): JsonResponse
     {
-        return response()->json([
-            'error' => $message,
-            'code' => $errorCode,
-        ], $statusCode);
+        return response()->json(compact('message', 'code'), $statusCode);
     }
 }
 
