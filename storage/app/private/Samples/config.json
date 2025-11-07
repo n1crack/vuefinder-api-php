@@ -1,0 +1,29 @@
+{
+  "app": {
+    "name": "VueFinder Demo",
+    "version": "1.0.0",
+    "description": "Beautiful file manager for Vue.js"
+  },
+  "features": {
+    "upload": true,
+    "download": true,
+    "preview": true,
+    "search": true,
+    "darkMode": true
+  },
+  "settings": {
+    "theme": "light",
+    "view": "grid",
+    "showHiddenFiles": false,
+    "maxFileSize": 10485760
+  },
+  "ui": {
+    "primaryColor": "#3b82f6",
+    "accentColor": "#8b5cf6",
+    "fontFamily": "Inter, sans-serif"
+  }
+}
+
+
+
+

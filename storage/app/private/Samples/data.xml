@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files>
+  <file>
+    <name>document.pdf</name>
+    <type>application/pdf</type>
+    <size>2456789</size>
+    <modified>2024-01-15T10:30:00Z</modified>
+  </file>
+  <file>
+    <name>image.jpg</name>
+    <type>image/jpeg</type>
+    <size>1024567</size>
+    <modified>2024-01-14T15:45:00Z</modified>
+  </file>
+  <file>
+    <name>video.mp4</name>
+    <type>video/mp4</type>
+    <size>15728640</size>
+    <modified>2024-01-13T09:20:00Z</modified>
+  </file>
+</files>
+
+
+
+

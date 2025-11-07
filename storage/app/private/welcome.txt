@@ -1,0 +1,13 @@
+Welcome to VueFinder Demo Directory
+
+This folder contains sample files showcasing VueFinder's powerful file management capabilities.
+
+Explore the organized folders:
+- Documents: Sample documents and PDFs
+- Images: High-quality stock photos
+- Media: Audio and video samples
+- Projects: Project templates and examples
+- Code: Code samples and configurations
+- Samples: Various data file formats
+
+Enjoy exploring VueFinder!

@@ -1,0 +1,34 @@
+VueFinder Demo Notes
+====================
+
+This directory contains sample files to demonstrate VueFinder's capabilities.
+
+File Types Included:
+- Documents (PDF, TXT, MD)
+- Images (JPG, PNG)
+- Audio (MP3)
+- Video (MP4)
+- Code Files (VUE, JS, TS)
+- Data Files (CSV, JSON, XML)
+
+Features to Test:
+1. File navigation and folder browsing
+2. File preview (images, PDFs)
+3. Search functionality
+4. Upload new files
+5. Organize files (move, copy, rename)
+6. Download files
+7. Dark mode toggle
+8. Grid/List view switching
+
+Tips:
+- Use drag and drop to upload files
+- Right-click for context menu
+- Use keyboard shortcuts for faster navigation
+- Enable preview to view files without downloading
+
+Enjoy exploring VueFinder!
+
+
+
+

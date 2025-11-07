@@ -1,0 +1,43 @@
+Getting Started with VueFinder
+================================
+
+VueFinder is a powerful file manager component that makes file handling
+in your Vue.js applications a breeze.
+
+Quick Start
+-----------
+
+1. Install VueFinder in your project
+2. Configure your file driver (local, remote, or custom)
+3. Add the <vue-finder> component to your template
+4. Start managing files!
+
+Key Features
+-----------
+
+✓ Drag and drop file uploads
+✓ File and folder operations (create, rename, delete, move, copy)
+✓ Advanced search functionality
+✓ Image and document previews
+✓ Archive support (zip, tar, etc.)
+✓ Beautiful, responsive design
+✓ Dark mode support
+✓ Keyboard shortcuts
+✓ File type icons
+✓ Customizable themes
+
+Use Cases
+---------
+
+- Document management systems
+- Media libraries
+- Cloud storage interfaces
+- Project file organizers
+- Content management systems
+- File sharing platforms
+
+For more information, visit the official documentation.
+
+
+
+
