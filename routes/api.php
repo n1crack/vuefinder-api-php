@@ -24,7 +24,5 @@ Route::prefix('/files')
     Route::post('/unarchive', [VueFinderController::class, 'unarchive'])->name('vuefinder.unarchive');
     Route::post('/create-file', [VueFinderController::class, 'createFile'])->name('vuefinder.create-file');
     Route::post('/create-folder', [VueFinderController::class, 'createFolder'])->name('vuefinder.create-folder');
-
-    // DELETE routes
-    Route::delete('/delete', [VueFinderController::class, 'delete'])->name('vuefinder.delete');
+    Route::post('/delete', [VueFinderController::class, 'delete'])->name('vuefinder.delete');
 });

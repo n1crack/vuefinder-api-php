@@ -67,9 +67,7 @@ All endpoints are prefixed with `/api/files`:
 - `POST /api/files/create-file` - Create a new file
 - `POST /api/files/create-folder` - Create a new folder
 - `POST /api/files/save` - Save file content
-
-### DELETE Endpoints
-- `DELETE /api/files/delete` - Delete files/folders
+- `POST /api/files/delete` - Delete files/folders
 
 ## Storage Configuration
 
