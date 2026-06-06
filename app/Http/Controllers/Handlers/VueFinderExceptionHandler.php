@@ -113,8 +113,25 @@ class VueFinderExceptionHandler
 
         // Handle FilesystemException
         if ($exception instanceof FilesystemException) {
+            $message = $exception->getMessage();
+            $lower = strtolower($message);
+
+            // Flysystem reports missing paths as a generic FilesystemException
+            // (e.g. "Unable to retrieve metadata ... file does not exist"). Map
+            // these to a clean 404 so the UI can show a precise message.
+            $notFoundNeedles = ['does not exist', 'no such file', 'not found'];
+            foreach ($notFoundNeedles as $needle) {
+                if (str_contains($lower, $needle)) {
+                    return $this->errorResponse(
+                        'The specified path does not exist.',
+                        404,
+                        'path_not_found'
+                    );
+                }
+            }
+
             return $this->errorResponse(
-                'Filesystem error occurred.',
+                $message !== '' ? $message : 'Filesystem error occurred.',
                 500,
                 'filesystem_error'
             );
